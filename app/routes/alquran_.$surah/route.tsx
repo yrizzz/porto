@@ -79,10 +79,10 @@ export default function Route() {
                     {data.ayat.map((item, index) => (
                         <div key={index} className="h-[100%] border-1 rounded-lg p-3 space-y-4">
                             <span className="w-full font-serif float-right mb-5 py-5">
-                                <div className="text-4xl xl:text-4xl text-right font-scheherazade font-semibold">
-                                    <p className="leading-relaxed">{item.teksArab}
+                                <div className="text-3xl xl:text-4xl sm:text-3xl text-right font-scheherazade font-semibold">
+                                    <p className="leading-loose">{item.teksArab}
                                         <span className={`font-calibri border-1 border-black dark:border-white font-bold 
-                                            ${String(item.nomorAyat).length > 1 ? 'text-2xl mr-2 px-3 rounded-3xl' : 'rounded-full mr-2 px-5 text-2xl'}`}>
+                                            ${String(item.nomorAyat).length > 1 ? 'text-lg mr-2 px-3 rounded-3xl' : 'rounded-full mr-2 px-2 text-lg'}`}>
                                             {item.nomorAyat}
                                         </span> </p>
                                 </div>
