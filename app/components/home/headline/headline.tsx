@@ -88,7 +88,7 @@ export default function Headline() {
                                 <ul>
                                     <li className="p-3"><BiLogoPaypal className="inline-block" /> Paypal : https://paypal.me/yrizzz</li>
                                     <li className="p-3"><BiMoney className="inline-block" /> Saweria : https://saweria.co/yrizzz</li>
-                                    <li className="p-3"><BiMoney className="inline-block" /> E-Money : 081296451923  </li>
+                                    <li className="p-3"><BiMoney className="inline-block" /> E-Wallet : 081296451923  </li>
                                 </ul>
                             </ModalBody>
                             <ModalFooter>
