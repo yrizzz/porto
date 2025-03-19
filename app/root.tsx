@@ -10,7 +10,7 @@ import {
 import "./tailwind.css";
 import Header from './components/layout/header/headerIndex'
 import Footer from './components/layout/footer/footerIndex'
-
+import { Analytics } from "@vercel/analytics/remix"
 import { HeroUIProvider } from "@heroui/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useEffect, useRef } from "react";
@@ -68,6 +68,7 @@ export default function App() {
             <Scripts />
           </NextThemesProvider>
         </HeroUIProvider >
+        <Analytics/>
       </body>
     </html>
   );
