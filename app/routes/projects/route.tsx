@@ -1,5 +1,12 @@
 import { Button } from "@heroui/react"
 import { Link } from "@remix-run/react"
+import type { MetaFunction } from "@remix-run/node";
+export const meta: MetaFunction = () => {
+    return [
+        { title: "Projects" }
+    ];
+};
+
 export default function Route() {
     return (
         <>

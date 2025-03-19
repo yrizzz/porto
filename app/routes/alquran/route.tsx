@@ -1,5 +1,11 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import axios from "axios";
+import type { MetaFunction } from "@remix-run/node";
+export const meta: MetaFunction = () => {
+    return [
+        { title: "AlQuran Online" }
+    ];
+};
 
 export const loader = async () => {
     const response = await axios("https://equran.id/api/v2/surat");

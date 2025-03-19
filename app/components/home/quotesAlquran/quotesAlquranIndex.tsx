@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
 const quotes = [
     {
         "text": "Janganlah kamu berduka cita, sesungguhnya Allah selalu bersama kita.",
@@ -153,12 +155,24 @@ export default function QuoteAlquran() {
         const randomIndex = Math.floor(Math.random() * quotes.length);
         setQuote({ text: quotes[randomIndex].text, reference: quotes[randomIndex].reference });
     };
+
+    const scrollRef = useRef(null)
+
     return (
         <>
-            <section className="text-center sm:-mt-2 fadeIn">
-                <h1 className="text-medium">&quot;{quote?.text}&quot;</h1>
-                <p className="text-medium">{quote?.reference}</p>
-            </section>
+            <AnimatePresence mode="wait">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ root: scrollRef }}
+                    transition={{ duration: 0.5, delay: 0.25 }}
+                >
+                    <section className="text-center sm:-mt-2 fadeIn">
+                        <h1 className="text-medium">&quot;{quote?.text}&quot;</h1>
+                        <p className="text-medium">{quote?.reference}</p>
+                    </section>
+                </motion.div>
+            </AnimatePresence>
         </>
-    );
+    )
 }

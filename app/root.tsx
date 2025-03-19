@@ -4,7 +4,8 @@ import {
   Meta,
   Scripts,
   Outlet,
-  ScrollRestoration
+  ScrollRestoration,
+  useLocation
 } from "@remix-run/react";
 
 import "./tailwind.css";
@@ -14,7 +15,7 @@ import { Analytics } from "@vercel/analytics/remix"
 import { HeroUIProvider } from "@heroui/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useEffect, useRef } from "react";
-import { motion, useAnimation, useInView } from "framer-motion"
+import { motion, useAnimation, useInView, AnimatePresence } from "framer-motion"
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -53,14 +54,21 @@ export default function App() {
             <Header />
             <div className="container mx-auto px-4">
               <div ref={ref}>
-                <motion.div
-                  variants={{ hidden: { opacity: 0, y: 75 }, visible: { opacity: 1, y: 0 } }}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{ duration: 0.5, delay: 0.25 }}
-                >
-                  <Outlet />
-                </motion.div>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={useLocation().pathname}
+                    variants={{
+                      initial: { opacity: 0, y: -1000 },
+                      animate: { opacity: 1, y: 0 },
+                      exit: { opacity: 1, y: 1000 },
+                    }}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                  >
+                    <Outlet />
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
             <Footer />
@@ -68,7 +76,7 @@ export default function App() {
             <Scripts />
           </NextThemesProvider>
         </HeroUIProvider >
-        <Analytics/>
+        <Analytics />
       </body>
     </html>
   );

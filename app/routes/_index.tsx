@@ -1,9 +1,9 @@
-import type { MetaFunction } from "@remix-run/node";
 import Home from "../components/home/homeIndex"
+import type { MetaFunction } from "@remix-run/node";
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "My Portofolio" },
+    { name: "description", content: "Welcome to my portofolio website" },
   ];
 };
 
