@@ -59,6 +59,10 @@ export default function Route() {
             label: "Downloader"
         },
         {
+            id: "domain",
+            label: "Domain",
+        },
+        {
             id: "random",
             label: "Random",
         },
@@ -114,27 +118,27 @@ export default function Route() {
                                             className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[500px]' : 'max-h-0'}`}>
                                             <div className="w-full border-1 p-3">
                                                 <div className="relative overflow-x-auto">
-                                                    <table className="w-full text-sm text-left dark:text-gray-400">
-                                                        <tbody>
+                                                    <table className="w-full text-sm text-left dark:text-gray-400 p-2">
+                                                        <tbody className="p-2">
                                                             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 p-3">
-                                                                <td className="py-3">Url</td>
+                                                                <td className="py-3 px-2">Url</td>
                                                                 <td className="py-3 px-1 xl:px-1 sm:px-3">:</td>
-                                                                <td className="py-3">{baseUrl + item.path}</td>
+                                                                <td className="py-3 px-2">{baseUrl + item.path}</td>
                                                             </tr>
                                                             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 p-3">
-                                                                <td className="py-3">Accept</td>
+                                                                <td className="py-3  px-2">Accept</td>
                                                                 <td className="py-3 px-1 xl:px-1 sm:px-3">:</td>
-                                                                <td className="py-3">{item.accept}</td>
+                                                                <td className="py-3  px-2">{item.accept}</td>
                                                             </tr>
                                                             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 p-3">
-                                                                <td className="py-3">Desc</td>
+                                                                <td className="py-3  px-2">Desc</td>
                                                                 <td className="py-3 px-1 xl:px-1 sm:px-3">:</td>
-                                                                <td className="py-3">{item.description}</td>
+                                                                <td className="py-3  px-2">{item.description}</td>
                                                             </tr>
                                                             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 p-3">
-                                                                <td className="py-3">Params</td>
+                                                                <td className="py-3  px-2">Params</td>
                                                                 <td className="py-3 px-1 xl:px-1 sm:px-3">:</td>
-                                                                <td className="py-3"><pre>{JSON.stringify(item.params,null,2)}</pre></td>
+                                                                <td className="py-3  px-2"><pre>{JSON.stringify(item.params, null, 2)}</pre></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
