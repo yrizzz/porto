@@ -2,20 +2,19 @@ import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
   Meta,
-  Scripts,
   Outlet,
-  ScrollRestoration,
-  useLocation
+  Scripts,
+  ScrollRestoration
 } from "@remix-run/react";
 
-import "./tailwind.css";
-import Header from './components/layout/header/headerIndex'
-import Footer from './components/layout/footer/footerIndex'
-import { Analytics } from "@vercel/analytics/remix"
 import { HeroUIProvider } from "@heroui/react";
+import { Analytics } from "@vercel/analytics/remix";
+import { useAnimation, useInView } from "framer-motion";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useEffect, useRef } from "react";
-import { motion, useAnimation, useInView, AnimatePresence } from "framer-motion"
+import Footer from './components/layout/footer/footerIndex';
+import Header from './components/layout/header/headerIndex';
+import "./tailwind.css";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -53,23 +52,7 @@ export default function App() {
           <NextThemesProvider attribute="class" defaultTheme="light">
             <Header />
             <div className="container mx-auto px-4">
-              <div ref={ref}>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={useLocation().pathname}
-                    variants={{
-                      initial: { opacity: 0, y: -1000 },
-                      animate: { opacity: 1, y: 0 },
-                      exit: { opacity: 1, y: 1000 },
-                    }}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                  >
-                    <Outlet />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
+              <Outlet />
             </div>
             <Footer />
             <ScrollRestoration />

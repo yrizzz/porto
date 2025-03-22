@@ -10,7 +10,7 @@ import {
 import { BiCoffee, BiLogoPaypal, BiMoney } from "react-icons/bi";
 import { TypeAnimation } from "react-type-animation";
 import me from "../../../../public/me.jfif";
-
+import { Link } from "@remix-run/react";
 
 
 export default function Headline() {
@@ -55,6 +55,11 @@ export default function Headline() {
                                 className="bg-gradient-to-tr from-cyan-500 to-indigo-500 text-white shadow-lg"
                                 radius="sm" onPress={onOpen}>
                                 Buy me coffe <BiCoffee size={18} />
+                            </Button>
+                            <Button
+                                className="bg-gradient-to-tr from-orange-500 to-yellow-500 text-white shadow-lg"
+                                radius="sm">
+                                <Link to="/projects"> Project </Link>
                             </Button>
                         </div>
                     </div>

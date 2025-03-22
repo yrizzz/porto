@@ -4,7 +4,7 @@ import { BiLogoFacebookCircle as BiFacebook, BiLogoInstagramAlt as BiInstagram, 
 export default function Footer() {
     return (
         <>
-            <footer className="bottom-0 left-0 w-full h-auto justify-center text-center mt-10">
+            <footer className="bottom-0 left-0 w-full h-auto justify-center text-center mt-10 my-2">
                 <p className="text-sm">Crafted With ❤ Free Palestine</p>
                 <p className="text-xs">Contact Me</p>
                 <div className="">

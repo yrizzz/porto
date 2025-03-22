@@ -1,6 +1,7 @@
 import { Alert, Tab, Tabs } from "@heroui/react";
 import { useEffect, useRef, useState } from "react";
 import { BiCaretDown } from "react-icons/bi";
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import * as Utils from "../../../utils/api";
 
 const dataApi = Object.values(Utils);
@@ -26,12 +27,13 @@ export default function Route() {
         params: {
             mode: string;
             name: string;
+            category: string;
             type: string;
             default: string;
             required: boolean;
         }[];
-        endpoint: string;
         description: string;
+        example: string;
         code: (prompt: Record<string, unknown>) => Promise<unknown>;
     }
 
@@ -55,12 +57,12 @@ export default function Route() {
             label: "Ai",
         },
         {
-            id: "downloader",
-            label: "Downloader"
-        },
-        {
             id: "domain",
             label: "Domain",
+        },
+        {
+            id: "downloader",
+            label: "Downloader"
         },
         {
             id: "random",
@@ -90,7 +92,7 @@ export default function Route() {
                                 {apiData.map((item, index) => item.category === i.id && (
                                     <div key={item.name}>
                                         <div
-                                            className="w-full flex justify-start h-[50px] border cursor-pointer hover:bg-blue-50 dark:hover:bg-slate-800 gap-3"
+                                            className="w-full dark:border-gray-700 flex justify-start h-[50px] border cursor-pointer hover:bg-blue-50 dark:hover:bg-slate-800 gap-3"
                                             onClick={() => toggleAccordion(index)}
                                             role="button"
                                             tabIndex={0}
@@ -115,8 +117,8 @@ export default function Route() {
 
                                         <div
                                             ref={el => contentRefs.current[index] = el}
-                                            className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[500px]' : 'max-h-0'}`}>
-                                            <div className="w-full border-1 p-3">
+                                            className={` overflow-y-auto transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[500px]' : 'max-h-0'}`}>
+                                            <div className="w-full border-1 dark:border-gray-700 p-3">
                                                 <div className="relative overflow-x-auto">
                                                     <table className="w-full text-sm text-left dark:text-gray-400 p-2">
                                                         <tbody className="p-2">
@@ -142,6 +144,11 @@ export default function Route() {
                                                             </tr>
                                                         </tbody>
                                                     </table>
+                                                    <div>
+                                                        <SyntaxHighlighter language="javascript">
+                                                            {item.example}
+                                                        </SyntaxHighlighter>
+                                                    </div>
                                                 </div>
 
                                             </div>

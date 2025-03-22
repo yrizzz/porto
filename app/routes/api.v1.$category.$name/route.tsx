@@ -1,9 +1,9 @@
-import type { LoaderFunctionArgs, ActionFunctionArgs } from "@remix-run/node";
+import type { ActionFunctionArgs } from "@remix-run/node";
 import * as Utils from "../../../utils/api";
 const dataApi = Object.values(Utils);
 
 // Loader function for GET requests
-export const loader = async ({ params }: LoaderFunctionArgs) => {
+export const loader = async () => {
     // Handle GET requests here if needed
     return Response.json({ message: "This is a GET request" });
 };
@@ -22,8 +22,8 @@ export const action = async ({ request, params }: ActionFunctionArgs) => {
                     try {
                         const formData = await request.formData();
                         const postData = Object.fromEntries(formData);
-                        const result = await item.code(postData.prompt);
-                        response = Response.json({ status: 200, message: 'success', data: JSON.stringify(result) });
+                        const result = await item.code(postData[item.params[0].name]);
+                        response = Response.json({ status: 200, message: 'success', data: result });
 
                     } catch (err) {
                         response = Response.json({ message: 'Failed to fetch' });
