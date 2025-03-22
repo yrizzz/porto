@@ -103,7 +103,7 @@ export default function Route() {
                                             }}
                                         >
                                             <div className="flex justify-center items-center">
-                                                <span className={`${getMethodClass(item.method)} text-white text-sm p-0.5 pr-5 rounded-tr-lg rounded-br-lg`}>
+                                                <span className={`${getMethodClass(item.method)} text-white text-sm p-0.5 pr-3 rounded-tr-lg rounded-br-lg`}>
                                                     {item.method}
                                                 </span>
                                             </div>
