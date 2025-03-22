@@ -56,11 +56,9 @@ export default function Headline() {
                                 radius="sm" onPress={onOpen}>
                                 Buy me coffe <BiCoffee size={18} />
                             </Button>
-                            <Button
-                                className="bg-gradient-to-tr from-orange-500 to-yellow-500 text-white shadow-lg"
-                                radius="sm">
-                                <Link to="/projects"> Project </Link>
-                            </Button>
+                            <Link to="/projects" className="flex items-center  text-sm p-2 rounded-lg bg-gradient-to-tr from-orange-500 to-yellow-500 text-white shadow-lg">
+                            My Projects
+                            </Link>
                         </div>
                     </div>
                     <div className="col-span-5 flex flex-col justify-center">

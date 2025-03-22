@@ -84,10 +84,11 @@ export default function Route() {
                     variant="faded"
                 />
             </div>
-            <div className="flex w-full flex-col">
+            <div className="flex w-full flex-col mb-3">
                 <Tabs aria-label="Dynamic tabs" items={tabx}>
                     {(i) => (
                         <Tab key={i.id} title={i.label}>
+                            <div className="mb-3 pb-4">
                             <div className="flex w-full flex-col gap-3">
                                 {apiData.map((item, index) => item.category === i.id && (
                                     <div key={item.name}>
@@ -117,7 +118,7 @@ export default function Route() {
 
                                         <div
                                             ref={el => contentRefs.current[index] = el}
-                                            className={` overflow-y-auto transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[500px]' : 'max-h-0'}`}>
+                                            className={` overflow-y-auto transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[450px]' : 'max-h-0'}`}>
                                             <div className="w-full border-1 dark:border-gray-700 p-3">
                                                 <div className="relative overflow-x-auto">
                                                     <table className="w-full text-sm text-left dark:text-gray-400 p-2">
@@ -155,6 +156,7 @@ export default function Route() {
                                         </div>
                                     </div>
                                 ))}
+                            </div>
                             </div>
                         </Tab>
                     )}
